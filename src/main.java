@@ -6,12 +6,20 @@ public class main {
 		System.out.println();
 	}
 
+	static void verifyExitConditions(int[] data, AppGui iface) {
+		for (int d : data) {
+			if (d <= 0) {
+				iface.showMessage("Error! No value can be empty, zero or less than zero");
+				System.exit(-1);
+			}
+		}
+	}
+
 	public static void main(String[] args) {
-		Game game = new Game(3, 8000);
-		game.createPlayers();
-		Player p1;
-		p1 = game.getPlayer("1");
-		p1.sub(3999);
-		print(game.gameStatus());
+		AppGui iface = new AppGui();
+		int[] game_data = iface.inputBox("Enter the game data: ");
+		verifyExitConditions(game_data, iface);
+		Game game = new Game(game_data[0], game_data[1]);
+		print(game.status());
 	}
 }
