@@ -9,11 +9,12 @@ public class main {
 	static void verifyExitConditions(int[] data, AppGui iface) {
 		for (int d : data) {
 			if (d <= 0) {
-				iface.showMessage("Error! No value can be empty, zero or less than zero");
+				iface.showMessage("Error! No value can be empty, zero, less than zero or a letter!");
 				System.exit(-1);
 			}
 		}
 	}
+
 
 	public static void main(String[] args) {
 		AppGui iface = new AppGui();
