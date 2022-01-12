@@ -1,4 +1,4 @@
-public class main {
+public class Main {
 	static void print(Object ...args) {
 		for(Object arg : args) {
 			System.out.print(arg);
