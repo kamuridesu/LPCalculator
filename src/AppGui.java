@@ -8,7 +8,8 @@ public class AppGui {
 	}
 
 	public String getUserInput(String msg) {
-		return JOptionPane.showInputDialog(null, msg);
+		String input = JOptionPane.showInputDialog(null, msg);
+		return input;
 	}
 
 	private boolean checkIfValidNumberFromString(String str) {
@@ -48,6 +49,8 @@ public class AppGui {
 					infos[1] = Integer.parseInt(life_points);
 				}
 			}
+		} else {
+			System.exit(0);
 		}
 		return infos;
 	}

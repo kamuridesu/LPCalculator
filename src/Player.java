@@ -23,5 +23,5 @@ public class Player {
 	public void sub(int value) {
 		lifepoints = lifepoints - value;
 		updateStatus();
-	}	
+	}
 }

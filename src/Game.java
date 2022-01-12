@@ -26,6 +26,9 @@ public class Game {
 	private void createPlayers() {
 		for(int i = 0; i < n_of_players; i++) {
 			String playername = input.getUserInput("Enter the player name: ");
+			if (playername.equals((""))) {
+				playername = "anon";
+			}
 			players.add(createNewPlayer(playername, base_lifepoints, i));
 		}
 	}
@@ -42,6 +45,10 @@ public class Game {
 		return player;
 	}
 
+	public ArrayList getPlayers() {
+		return players;
+	}
+
 	public String status() {
 		String status = "";
 		for (Player player : players) {
@@ -49,5 +56,34 @@ public class Game {
 		}
 		return status;
 	}
+
+	public boolean checkGameOver() {
+		for (Player player : players) {
+			if (player.lifepoints <= 0) {
+				gameOver();
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void gameOver() {
+		String winner = "";
+		for (Player player : players) {
+			if (player.lifepoints > 0) {
+				winner = player.playername;
+			}
+		}
+		System.out.println("Game over! " + winner + " won!");
+	}
+
+	// public gameOver() {
+	// 	for (Player player : players) {
+	// 		if (player.lifepoints <= 0) {
+	// 			return player.playername;
+	// 		}
+	// 	}
+	// 	return "";
+	// }
 }
 
